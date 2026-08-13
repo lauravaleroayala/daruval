@@ -816,3 +816,256 @@ footer small {
     }
 }
 
+
+/* =====================================================
+   ABOUT — TECHNICAL STACK
+===================================================== */
+
+.about-tech {
+    background: var(--black);
+    color: var(--white);
+}
+
+.about-tech-content {
+    max-width: var(--max);
+    margin: 0 auto;
+}
+
+.about-tech-intro {
+    max-width: 760px;
+    margin-bottom: 55px;
+}
+
+.about-tech-intro p {
+    color: #aaa;
+    font-size: 18px;
+    line-height: 1.65;
+}
+
+.about-tech-intro strong {
+    color: var(--white);
+}
+
+
+/* TECH CARDS */
+
+.about-tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+
+    background: var(--line);
+    border: 1px solid var(--line);
+}
+
+.about-tech-card {
+    min-height: 190px;
+    padding: 32px;
+
+    background: #111;
+
+    transition: background .25s ease;
+}
+
+.about-tech-card:hover {
+    background: #181818;
+}
+
+.about-tech-card span,
+.about-tech-outcome > span {
+    display: block;
+
+    color: var(--red);
+
+    font: 9px 'DM Mono';
+    letter-spacing: 1.4px;
+}
+
+.about-tech-card h3 {
+    margin-top: 35px;
+
+    font-size: 27px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.about-tech-card p {
+    margin-top: 8px;
+
+    color: #888;
+    font-size: 12px;
+}
+
+
+/* TECH OUTCOME */
+
+.about-tech-outcome {
+    margin-top: 1px;
+    padding: 45px 32px;
+
+    background: #151515;
+
+    border-top: 1px solid var(--line);
+}
+
+.about-tech-outcome h3 {
+    margin-top: 10px;
+
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.about-tech-outcome p {
+    max-width: 650px;
+    margin-top: 15px;
+
+    color: #999;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   ABOUT — PHILOSOPHY
+===================================================== */
+
+.about-philosophy {
+    background: var(--white);
+    color: var(--black);
+}
+
+.philosophy-layout {
+    max-width: var(--max);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 90px;
+}
+
+
+/* LEFT */
+
+.philosophy-statement {
+    padding-top: 10px;
+}
+
+.philosophy-statement > span {
+    display: block;
+
+    color: #777;
+
+    font: 9px 'DM Mono';
+    letter-spacing: 1.4px;
+}
+
+.philosophy-statement h3 {
+    margin-top: 20px;
+
+    font-size: clamp(35px, 4vw, 58px);
+    line-height: .98;
+    letter-spacing: -2.5px;
+}
+
+
+/* RIGHT */
+
+.philosophy-copy {
+    color: #666;
+}
+
+.philosophy-copy > p {
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.philosophy-copy strong {
+    color: var(--black);
+}
+
+
+/* VALUES */
+
+.philosophy-values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1px;
+
+    margin: 35px 0;
+
+    background: #ccc;
+    border: 1px solid #ccc;
+}
+
+.philosophy-values div {
+    padding: 20px 15px;
+
+    background: var(--white);
+}
+
+.philosophy-values strong {
+    display: block;
+
+    color: var(--red);
+
+    font: 10px 'DM Mono';
+}
+
+.philosophy-values span {
+    display: block;
+
+    margin-top: 22px;
+
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .7px;
+}
+
+
+/* =====================================================
+   ABOUT — TECH + PHILOSOPHY RESPONSIVE
+===================================================== */
+
+@media(max-width:900px) {
+
+    .about-tech-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .philosophy-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+}
+
+
+@media(max-width:600px) {
+
+    .about-tech-card {
+        min-height: 160px;
+    }
+
+    .about-tech-outcome {
+        padding: 35px 25px;
+    }
+
+    .philosophy-values {
+        grid-template-columns: 1fr;
+    }
+
+    .philosophy-values div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .philosophy-values span {
+        margin-top: 0;
+    }
+
+}
+
