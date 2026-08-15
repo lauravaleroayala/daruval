@@ -1,46 +1,248 @@
-document.addEventListener('DOMContentLoaded', () => {
+/* =====================================================
+   NAVBAR HIDE / SHOW
+===================================================== */
 
-    /* MOBILE MENU */
+const navbar = document.querySelector(".navbar");
 
-    const navbar = document.querySelector('.navbar');
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.navbar nav');
+let previousScroll = window.scrollY;
 
-    if (navbar && menuToggle && nav) {
+window.addEventListener("scroll", () => {
 
-        const closeMenu = () => {
-            navbar.classList.remove('nav-open');
-            menuToggle.setAttribute('aria-expanded', 'false');
-            menuToggle.textContent = '☰';
-        };
+    const currentScroll = window.scrollY;
 
-        const toggleMenu = () => {
-            const isOpen = navbar.classList.toggle('nav-open');
-            menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            menuToggle.textContent = isOpen ? '✕' : '☰';
-        };
+    if (currentScroll > previousScroll && currentScroll > 150) {
 
-        menuToggle.addEventListener('click', toggleMenu);
+        navbar.style.transform =
+            "translateY(-110%)";
 
-        // Close the menu once a link inside it is used
-        nav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
+    } else {
 
-        // Keep things tidy if the viewport grows past the mobile breakpoint
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 900) closeMenu();
-        });
+        navbar.style.transform =
+            "translateY(0)";
 
     }
 
-
-    /* FORMS */
-
-    document.querySelectorAll('form').forEach(f => f.addEventListener('submit', e => {
-        e.preventDefault();
-        const m = f.querySelector('.form-message');
-        if (m) m.textContent = 'Formulario preparado. Falta conectar el envío a tu email/CRM.';
-    }));
+    previousScroll = currentScroll;
 
 });
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const menuToggle =
+    document.querySelector(".menu-toggle");
+
+const mobileNav =
+    document.querySelector(".navbar");
+
+
+if (menuToggle && mobileNav) {
+
+    menuToggle.addEventListener("click", () => {
+
+        const isOpen =
+            mobileNav.classList.toggle("nav-open");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen
+                ? "Cerrar menú"
+                : "Abrir menú"
+        );
+
+        menuToggle.textContent =
+            isOpen ? "✕" : "☰";
+
+    });
+
+
+    mobileNav
+        .querySelectorAll("nav a")
+        .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                mobileNav.classList.remove(
+                    "nav-open"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Abrir menú"
+                );
+
+                menuToggle.textContent = "☰";
+
+            });
+
+        });
+
+}
+
+
+/* =====================================================
+   REVEAL ANIMATION
+===================================================== */
+
+const revealElements =
+    document.querySelectorAll(
+        ".journey-step, .day, .gallery-item, .reality-row, .profile-grid div"
+    );
+
+
+const revealObserver =
+    new IntersectionObserver(
+
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "revealed"
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.15
+        }
+
+    );
+
+
+revealElements.forEach((element) => {
+
+    element.classList.add("reveal");
+
+    revealObserver.observe(element);
+
+});
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+const form =
+    document.getElementById("talent-form");
+
+
+const formMessage =
+    document.getElementById("form-message");
+
+
+if (form) {
+
+    form.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+            formMessage.textContent =
+                "Gracias. Hemos recibido tu candidatura.";
+
+            form.reset();
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   PERKS
+===================================================== */
+
+const modal =
+    document.getElementById("running-modal");
+
+const openButton =
+    document.querySelector(".open-modal");
+
+const closeButton =
+    document.querySelector(".modal-close");
+
+const backdrop =
+    document.querySelector(".modal-backdrop");
+
+
+function openModal() {
+
+    modal.classList.add("open");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+
+function closeModal() {
+
+    modal.classList.remove("open");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.style.overflow =
+        "";
+}
+
+
+openButton?.addEventListener(
+    "click",
+    openModal
+);
+
+
+closeButton?.addEventListener(
+    "click",
+    closeModal
+);
+
+
+backdrop?.addEventListener(
+    "click",
+    closeModal
+);
+
+
+document.addEventListener(
+    "keydown",
+    e => {
+
+        if (
+            e.key === "Escape" &&
+            modal?.classList.contains("open")
+        ) {
+
+            closeModal();
+
+        }
+
+    }
+);

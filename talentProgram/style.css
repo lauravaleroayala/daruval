@@ -40,6 +40,23 @@ a {
 }
 
 
+button,
+input,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+
+button {
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    border-radius: 0;
+}
+
+
 :root {
 
     --black: #111111;
@@ -236,303 +253,263 @@ h2 em {
     font-style: normal;
 
     color:
-        var(--grey);
+        var(--white);
 
 }
 
 
 
 /* =====================================================
-   DARUVAL HERO — VIDEO
-   ===================================================== */
+   HERO
+===================================================== */
 
 .hero {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    min-height: calc(100vh - 76px);
+
+    max-width:
+        1450px;
+
+    min-height:
+        100vh;
+
+    margin:
+        auto;
+
+    padding-top:
+        145px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        80px;
+
+    align-items:
+        center;
+
 }
 
-
-/* -----------------------------------------------------
-   LEFT / COPY
------------------------------------------------------ */
 
 .hero-copy {
-    padding: 9vw 6vw 7vw 8vw;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    max-width:
+        800px;
+
 }
 
-.hero-copy .label {
-    margin-bottom: 18px;
-}
-
-.hero-copy h1 {
-    font-size: clamp(52px, 6.4vw, 100px);
-    line-height: 0.94;
-    letter-spacing: -5px;
-    max-width: 850px;
-}
-
-.hero-copy h1 em {
-    font-style: normal;
-    color: #8d8d8d;
-}
 
 .hero-description {
-    max-width: 590px;
-    margin-top: 30px;
 
-    font-size: 16px;
-    line-height: 1.55;
+    max-width:
+        600px;
 
-    color: #666;
+    margin-top:
+        35px;
+
+    color:
+        #656565;
+
+    font-size:
+        18px;
+
 }
+
 
 .hero-actions {
-    display: flex;
-    align-items: center;
-    gap: 18px;
 
-    margin-top: 35px;
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+    margin-top:
+        40px;
+
 }
 
 
-/* -----------------------------------------------------
-   RIGHT / VIDEO
------------------------------------------------------ */
+.button {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+    padding:
+        17px 22px;
+
+    border:
+        none;
+
+    cursor:
+        pointer;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+.button-dark {
+
+    background:
+        var(--black);
+
+    color:
+        white;
+
+}
+
+
+.button-dark:hover {
+
+    background:
+        #333;
+
+}
+
+
+.text-link {
+
+    font-size:
+        12px;
+
+    font-weight:
+        600;
+
+}
+
+
+.text-link span {
+
+    margin-left:
+        10px;
+
+}
+
 
 .hero-media {
-    position: relative;
 
-    min-height: 650px;
+    height:
+        620px;
 
-    overflow: hidden;
+    position:
+        relative;
 
-    background: #171717;
 }
 
-
-/* Video */
-
-.hero-video {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-    object-position: center center;
-
-    /*
-     * Slight contrast boost keeps the industrial footage
-     * looking crisp without changing the original video.
-     */
-    filter: contrast(1.04);
-
-    z-index: 1;
-}
-
-
-/* -----------------------------------------------------
-   SUBTLE OVERLAY
------------------------------------------------------ */
-
-.hero-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    background: rgba(0, 0, 0, 0.16);
-
-    pointer-events: none;
-
-    z-index: 2;
-}
-
-
-/* -----------------------------------------------------
-   TOP LEFT LABEL
------------------------------------------------------ */
 
 .hero-location {
-    position: absolute;
 
-    top: 28px;
-    left: 28px;
+    position:
+        absolute;
 
-    z-index: 3;
+    top:
+        -18px;
 
-    color: #ffffff;
+    right:
+        -18px;
 
-    font-family: "DM Mono", monospace;
-    font-size: 10px;
-    letter-spacing: 1.4px;
+    background:
+        white;
+
+    padding:
+        14px 18px;
+
+    font-size:
+        9px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1px;
+
 }
 
-
-/* Red indicator */
 
 .pulse {
-    display: inline-block;
 
-    width: 7px;
-    height: 7px;
+    display:
+        inline-block;
 
-    margin-right: 7px;
+    width:
+        7px;
 
-    background: #ED1E2B;
+    height:
+        7px;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
+
+    background:
+        var(--acid);
+
+    margin-right:
+        7px;
+
 }
 
-
-/* -----------------------------------------------------
-   BOTTOM RIGHT LABEL
------------------------------------------------------ */
 
 .hero-caption {
-    position: absolute;
 
-    right: 28px;
-    bottom: 28px;
+    position:
+        absolute;
 
-    z-index: 3;
+    bottom:
+        35px;
 
-    text-align: right;
+    left:
+        35px;
 
-    color: #ffffff;
+    color:
+        white;
+
 }
+
 
 .hero-caption small {
-    display: block;
 
-    margin-bottom: 3px;
+    display:
+        block;
 
-    color: rgba(255, 255, 255, 0.72);
+    font-size:
+        9px;
 
-    font-family: "DM Mono", monospace;
-    font-size: 9px;
-    letter-spacing: 1.4px;
+    letter-spacing:
+        2px;
+
 }
+
 
 .hero-caption strong {
-    display: block;
 
-    font-size: 26px;
-    line-height: 1;
+    display:
+        block;
 
-    letter-spacing: -1px;
-}
+    font-size:
+        55px;
 
-
-/* -----------------------------------------------------
-   ACCESSIBILITY / REDUCED MOTION
------------------------------------------------------ */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .hero-video {
-        display: none;
-    }
-
-    .hero-media {
-        background:
-            #171717
-            url("images/hero-poster.jpg")
-            center / cover
-            no-repeat;
-    }
+    letter-spacing:
+        -3px;
 
 }
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 900px) {
-
-    .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-    }
-
-    .hero-copy {
-        padding: 75px 7vw 65px;
-    }
-
-    .hero-media {
-        min-height: 58vh;
-    }
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 600px) {
-
-    .hero-copy {
-        padding: 65px 6vw 55px;
-    }
-
-    .hero-copy h1 {
-        font-size: clamp(48px, 13vw, 68px);
-        letter-spacing: -3px;
-    }
-
-    .hero-description {
-        font-size: 15px;
-        margin-top: 24px;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-        margin-top: 28px;
-    }
-
-    .hero-media {
-        min-height: 52vh;
-        max-height: 620px;
-    }
-
-    /*
-     * On mobile the video is slightly shifted to the
-     * left so the robotic machinery remains visible.
-     */
-    .hero-video {
-        object-position: 55% center;
-    }
-
-    .hero-location {
-        top: 20px;
-        left: 20px;
-
-        font-size: 9px;
-    }
-
-    .hero-caption {
-        right: 20px;
-        bottom: 20px;
-    }
-
-    .hero-caption strong {
-        font-size: 22px;
-    }
-
-}
-
 
 
 
@@ -2212,14 +2189,6 @@ h2 em {
 }
 
 
-.apply h2 em {
-
-    color:
-        #ffffff;
-
-}
-
-
 .apply p:not(.label) {
 
     max-width:
@@ -2229,7 +2198,7 @@ h2 em {
         35px auto;
 
     color:
-        #ffffff;
+        #555;
 
 }
 
