@@ -247,14 +247,17 @@ h2 {
 }
 
 
+
+
 h1 em,
 h2 em {
-
     font-style: normal;
+    color: var(--grey);
+}
 
-    color:
-        var(--white);
-
+/* Sobre el fondo rojo el gris no se lee: se queda blanco */
+.apply h2 em {
+    color: var(--white);
 }
 
 

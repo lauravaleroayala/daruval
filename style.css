@@ -308,37 +308,63 @@ h2 em {
 .tech-strip {
     width: 100%;
     overflow: hidden;
-    padding: 22px 0;
+    padding: 26px 0;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 }
-
+ 
+/* El track mide exactamente 2 grupos. Se mueve -50% = 1 grupo. */
 .tech-track {
     display: flex;
     width: max-content;
+    animation: tech-scroll 35s linear infinite;
+    will-change: transform;
+}
+ 
+.tech-strip:hover .tech-track {
+    animation-play-state: paused;
+}
+ 
+/* Cada grupo ocupa como mínimo todo el ancho de pantalla,
+   así en monitores grandes nunca queda hueco al final. */
+.tech-group {
+    display: flex;
+    flex-shrink: 0;
     align-items: center;
-    gap: 50px;
-
-    white-space: nowrap;
-
+    justify-content: space-around;
+    min-width: 100vw;
+}
+ 
+/* El espacio va como padding (no como gap) para que los dos
+   grupos midan exactamente lo mismo. */
+.tech-group > * {
+    padding: 0 45px;
+}
+ 
+.tech-group img {
+    display: block;
+    height: 24px;
+    width: auto;
+    opacity: .55;
+    transition: opacity .25s ease;
+}
+ 
+.tech-group img:hover {
+    opacity: 1;
+}
+ 
+.tech-name {
     font: 10px 'DM Mono';
     letter-spacing: .8px;
     color: #777;
-
-    animation: tech-scroll 24s linear infinite;
+    white-space: nowrap;
 }
-
+ 
 @keyframes tech-scroll {
-
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-33.333333%);
-    }
-
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
 }
+ 
 
 @media (prefers-reduced-motion: reduce) {
     .tech-track {
